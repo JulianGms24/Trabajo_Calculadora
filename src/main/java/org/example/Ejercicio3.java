@@ -30,6 +30,55 @@ public class Ejercicio3 {
             }
         }
 
+        boolean respuestaValida = false;
+        while (!respuestaValida) {
+            try {
+                System.out.print("¿Tiene un ticket válido? (si/no): ");
+                tieneTicketRespuesta = scanner.next().toLowerCase(); //convierte a minuscula
+
+                if (tieneTicketRespuesta.equals("sí") || tieneTicketRespuesta.equals("si")) {
+                    tieneTicket = true;
+                    respuestaValida = true;
+                } else if (tieneTicketRespuesta.equals("no")) {
+                    tieneTicket = false;
+                    respuestaValida = true;
+                } else {
+                    throw new IllegalArgumentException("Respuesta no válida. Por favor, ingrese 'si' o 'no'.");
+                }
+            } catch (IllegalArgumentException e) {
+                System.out.println("Error: " + e.getMessage());
+            }
+        }
+
+        if (edad >= 18) {
+            if (tieneTicket) {
+                System.out.println("Acceso permitido al evento.");
+
+                switch (tipoTicket) {
+                    case 'V':
+                        System.out.println("Usted tiene un ticket VIP. Precio: $" + (precioTicket * 1.5));
+                        break;
+                    case 'N':
+                        System.out.println("Usted tiene un ticket Normal. Precio: $" + precioTicket);
+                        break;
+                    default:
+                        System.out.println("Tipo de ticket no reconocido.");
+                        break;
+                }
+
+                for (int i = 0; i < 3; i++) {
+                    System.out.println("¡Bienvenido al evento!");
+                }
+
+            } else {
+                System.out.println("Acceso denegado. Necesita un ticket válido.");
+            }
+        } else {
+            System.out.println("Acceso denegado. Debe ser mayor de 18 años.");
+        }
+
+        scanner.close();
+
     }
 
 }
