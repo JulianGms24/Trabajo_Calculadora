@@ -3,7 +3,7 @@ package org.example; // define el paquete de el proyecto
 import java.util.Scanner;//importa la clase scanner para leer los datos del usuario
 
 
-public class Ejercicio_4 {//definicion de la clase principal
+public class Ejercicio2 {//definicion de la clase principal
 
     public static void main(String[] args) {//metodo principal donde inicia la ejecucion principal
         System.out.println("Este programa esta diseñaso con una evaluacion de conocimiento basico");//mensaje inicial
