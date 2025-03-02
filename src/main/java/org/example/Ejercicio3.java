@@ -13,6 +13,7 @@ public class Ejercicio3 {
 
         Scanner scanner = new Scanner(System.in);
 
+        //Aqui se solicita la edad del usuario, si se ingresa un caracter invalido devolvera la solicitud.
         boolean edadValida = false;
         while (!edadValida) {
             try {
@@ -30,6 +31,7 @@ public class Ejercicio3 {
             }
         }
 
+        //Aqui se solicita si el usuario tiene ticket. Al igual que el anterior se usa el manejor de errores o excepciones.
         boolean respuestaValida = false;
         while (!respuestaValida) {
             try {
@@ -50,10 +52,12 @@ public class Ejercicio3 {
             }
         }
 
+        //Aqui se verifica el acceso al evento
         if (edad >= 18) {
             if (tieneTicket) {
                 System.out.println("Acceso permitido al evento.");
 
+                //Aqui verifica el tipo de ticket
                 switch (tipoTicket) {
                     case 'V':
                         System.out.println("Usted tiene un ticket VIP. Precio: $" + (precioTicket * 1.5));
@@ -66,6 +70,7 @@ public class Ejercicio3 {
                         break;
                 }
 
+                //Este bucle es para que se genere un mensaje de bienvenida varias veces
                 for (int i = 0; i < 3; i++) {
                     System.out.println("¡Bienvenido al evento!");
                 }
