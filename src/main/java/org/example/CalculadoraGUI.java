@@ -22,3 +22,27 @@ public class CalculadoraGUI extends javax.swing.JFrame {
 
         for (String text : botones) {
             JButton button = new JButton(text); // Bucle que crea los botones de la calculadora a partir de un arreglo de cadenas.
+            button.addActionListener(new ActionListener() {
+                public void actionPerformed(ActionEvent e) {
+                    String command = e.getActionCommand();
+                    if (command.matches("[0-9]") || command.equals(".")) {
+                        textField.setText(textField.getText() + command);
+                    } else if (command.equals("C")) {
+                        textField.setText("");
+                        num1 = num2 = resultado = 0;
+                    } else if (command.equals("=")) {
+                        num2 = Double.parseDouble(textField.getText());
+                        switch (operador) { // Estructura de control para realizar la operación matemática correspondiente.
+                            case "+": resultado = num1 + num2; break;
+                            case "-": resultado = num1 - num2; break;
+                            case "*": resultado = num1 * num2; break;
+                            case "/": resultado = num2 != 0 ? num1 / num2 : 0; break;
+                            case "%": resultado = num1 % num2; break;
+                            case "^": resultado = Math.pow(num1, num2); break;
+                        }
+                        textField.setText(String.valueOf(resultado));
+                    } else if (command.equals("√")) {
+                        num1 = Double.parseDouble(textField.getText());
+                        resultado = Math.sqrt(num1);
+                        textField.setText(String.valueOf(resultado));
+                    } else if (command.equals("|x|")) {
