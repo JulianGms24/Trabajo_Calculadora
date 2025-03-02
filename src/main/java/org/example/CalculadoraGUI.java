@@ -1,3 +1,4 @@
+package org.example;
 import javax.swing.*;// Importa la librería Swing para crear la interfaz gráfica de usuario.
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
