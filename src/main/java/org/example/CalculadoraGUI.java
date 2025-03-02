@@ -46,3 +46,28 @@ public class CalculadoraGUI extends javax.swing.JFrame {
                         resultado = Math.sqrt(num1);
                         textField.setText(String.valueOf(resultado));
                     } else if (command.equals("|x|")) {
+                        num1 = Double.parseDouble(textField.getText());
+                        resultado = Math.abs(num1);
+                        textField.setText(String.valueOf(resultado));
+                    } else if (command.equals("C->F")) {
+                        num1 = Double.parseDouble(textField.getText());
+                        resultado = (num1 * 9/5) + 32;
+                        textField.setText(String.valueOf(resultado) + " °F");
+                    } else {
+                        num1 = Double.parseDouble(textField.getText());
+                        operador = command;
+                        textField.setText("");
+                    }
+                }
+            });
+            add(button);
+        }
+
+        pack();
+        setVisible(true);
+    }
+
+    public static void main(String[] args) { // Método principal que inicia la aplicación.
+        new CalculadoraGUI();
+    }
+}
